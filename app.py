@@ -24,9 +24,9 @@ def profile(username):
     return'{}\'s profile'.format(uusername)
 @app.route('/post/<int:post_ids>')
 def post(post_ids):
-    return "POST %d' %post_ids
+    return "'POST %d' %post_ids
 
-@app.route('/'):
+@app.route('/')
     def index():
         return '''
         <html>
