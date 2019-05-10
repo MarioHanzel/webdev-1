@@ -1,5 +1,5 @@
 # imports go here.
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -10,8 +10,35 @@ app = Flask(__name__)
 def index():
     return "Hello, world!"
 
+@app.route("/hello",methods=["GET"])
+def hello():
+    return "THIS IS HELLO WORLD!"
 
+@app.route("/", methods=["GET"])
+def login():
+    username = request.args.get('useername')
+    
+    
+@app.route('/user/<username>')
+def profile(username):
+    return'{}\'s profile'.format(uusername)
+@app.route('/post/<int:post_ids>')
+def post(post_ids):
+    return "POST %d' %post_ids
 
+@app.route('/'):
+    def index():
+        return '''
+        <html>
+        <h1> helo </h1>
+        <body>
+        <p>
+        hi this is done by inline html
+        </p>
+        </body>
+        
+        </html>
+        
 # This block is run if you execute this file locally, i.e. running 
 # `python3 app.py` from the command line. You can change the port if you want.
 # if you're curious: 
